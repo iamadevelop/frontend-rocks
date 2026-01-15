@@ -2,47 +2,30 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router";
 
 export const Root = () => {
-  const [count, setCount] = useState(0);
-  const [title, setTitle] = useState("Titolo iniziale");
-
-  useEffect(() => {
-    if (count === 4) {
-      setTitle("Il titolo ha superato il 4");
-    }
-  }, [count]);
-
   return (
-    <div className="h-dvh flex flex-col items-center justify-center">
-      <div className="bg-white p-8 rounded-md shadow-lg">
-        <h1 className="text-center font-bold text-3xl text-blue-400 mb-4">
-          {title}
-        </h1>
+    <div className="p-6 flex items-start justify-start">
+      <Card />
+    </div>
+  );
+};
 
-        <h2 className="text-center font-bold text-xl mb-6">Vite + React</h2>
+const Card = () => {
+  return (
+    <div className="flex flex-col items-start">
+      {/* Titolo */}
+      <h2 className="text-xl font-bold mb-3">
+        Pikachu - 0
+      </h2>
 
-        <div className="flex flex-col items-center space-y-4">
-          <button
-            className="bg-blue-500 text-white px-4 py-2 rounded-md shadow-md cursor-pointer hover:bg-blue-600 transition-colors"
-            onClick={() => setCount((count) => count + 1)}
-          >
-            Hai premuto il pulsante {count} {count === 1 ? "volta" : "volte"}
-          </button>
-
-          <button
-            className="bg-blue-500 text-white px-4 py-2 rounded-md shadow-md cursor-pointer hover:bg-blue-600 transition-colors"
-            onClick={() => setTitle("Charizard")}
-          >
-            Cambia titolo
-          </button>
-
-          <Link
-            to="/frontend-rocks/dettaglio/1"
-            className="text-blue-500 underline"
-          >
-            Link alla pagina di dettaglio
-          </Link>
+      {/* Quadrato bianco */}
+      <div className="w-[400px] h-[400px] bg-white border border-gray-300 flex items-center justify-center">
+        {/* Quadrato grigio più piccolo e centrato */}
+        <div className="w-[200px] h-[200px] bg-gray-400 flex items-center justify-center">
+          400x400
         </div>
       </div>
     </div>
   );
 };
+
+export default Card;
